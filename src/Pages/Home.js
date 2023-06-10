@@ -3,8 +3,15 @@ import styled from "styled-components";
 import PangImage from "../assets/logoImage.png";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleClickButton = () => {
+    navigate("/question");
+  };
+
   return (
     <Wrapper>
       <Header>예비집사 판별기</Header>
@@ -14,7 +21,7 @@ function Home() {
           <LogoImage src={PangImage} roundedCircle alt="logo" />
         </LogoImageSection>
         <Desc>MBTI를 기반으로 하는 나랑 잘맞는 고양이 찾기</Desc>
-        <Button>테스트 시작하기</Button>
+        <Button onClick={handleClickButton}>테스트 시작하기</Button>
       </Contents>
     </Wrapper>
   );
